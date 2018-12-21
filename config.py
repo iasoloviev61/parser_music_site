@@ -50,8 +50,8 @@ class Config(object):
                 },
             'all': {
                 'update': {
-                    'export': '1545222565',
-                    'import': '1545222565'
+                    'export': '1545038827',
+                    'import': '1545380543'
                 }
             }
         }
