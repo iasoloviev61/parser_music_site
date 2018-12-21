@@ -6,8 +6,12 @@ import urllib.request
 from queue import Queue
 from config import Config
 import logging
-img_path = Config.IMG_PATH
+import ssl
 
+img_path = Config.IMG_PATH
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
 
 class Downloader(threading.Thread):
     """Потоковый загрузчик файлов"""
@@ -31,7 +35,7 @@ class Downloader(threading.Thread):
             logging.info('Task download done')
     def download_file(self, url):
         """Скачиваем файл"""
-        handle = urllib.request.urlopen(url)
+        handle = urllib.request.urlopen(url, context=ctx)
         fname = img_path + os.path.basename(url)
 
         with open(fname, "wb") as f:

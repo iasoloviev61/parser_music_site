@@ -22,8 +22,8 @@ def get_job_id(spider, item):
         'state': 'finished'
     }
     jobs = []
-    # run_job(spider, item)
-    # time.sleep(3600)
+    run_job(spider, item)
+    time.sleep(3600)
     response = requests.get(Config.URL_LIST_JOBS, params=params, auth=(Config.API, ''))
     jobs_data = json.loads(response.text)['jobs']
     for item_data in jobs_data:

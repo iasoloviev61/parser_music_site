@@ -74,7 +74,7 @@ def convert_product_to_csv(data, type_category, shop):
                                       name + " только оригинал бесплатная доставка по Москве и России.",
                 "_DESCRIPTION_": item_data['description'].replace('Динатон', 'evterpashop'),
                 "_PRODUCT_TAG_": '',
-                "_IMAGE_": ''.join(item_data['img']).replace('https://dynatone.ru/image/cache/_product/', ''),
+                "_IMAGE_": ''.join(item_data['img']).replace('https://data.dynatone.ru/image/cache/_product/', ''),
                 "_SORT_ORDER_": 100,
                 "_STATUS_": 1,
                 "_SEO_KEYWORD_": seo_keyword.replace(' ', '-').replace('/', '-').replace('.', '').replace(',', '').replace('\'', ''),
@@ -90,16 +90,16 @@ def convert_product_to_csv(data, type_category, shop):
 
     for item_product in product_array:
         if item_product['_CATEGORY_ID_'] != '17000':
-            image_list.append('https://dynatone.ru/image/cache/_product/' + item_product['_IMAGE_'])
+            image_list.append('https://data.dynatone.ru/image/cache/_product/' + item_product['_IMAGE_'])
             product_array_category.append(item_product)
     logging.info('After sorting the goods into categories, there are %s goods to import and donwloads images' % (len(product_array_category)))
 
     # Download image
     # Делим большой список на несколько маленьких
-    # image_list_parted = split_list(image_list, wanted_parts=Config.PART_OF_IMAGE_LIST)
+    image_list_parted = split_list(image_list, wanted_parts=Config.PART_OF_IMAGE_LIST)
     # Проходим по спискам и качаем
-    # for item_image_list in image_list_parted:
-    #     download(item_image_list)
+    for item_image_list in image_list_parted:
+        download(item_image_list)
 
 
 

@@ -41,17 +41,17 @@ class Config(object):
 
             'gitar': {
                 'del': {
-                    'export': '1537874083',
-                    'import': '1539769133'
+                    'export': '1545038027',
+                    'import': '1545380365'
                     },
                 'add': {
-                    'import': '1539769429'
+                    'import': '1545222565'
                     }
                 },
             'all': {
                 'update': {
-                    'export': '1522401459',
-                    'import': '1539857117'
+                    'export': '1545222565',
+                    'import': '1545222565'
                 }
             }
         }
