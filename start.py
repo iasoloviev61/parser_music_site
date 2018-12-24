@@ -35,7 +35,7 @@ def run_app(shop, category, spider):
     # формируем файл для импорта в opencart, конвертируем список в формат csv
     export_csv(shop, category, 'del', final)
     # Запускаем задание импорта, в данном случае удаление товаров
-    run_schedule(shop, category, 'del', 'import')
+    # run_schedule(shop, category, 'del', 'import')
     logging.info('Second phase done')
 
     # Пункт 3.
@@ -46,14 +46,14 @@ def run_app(shop, category, spider):
     # Пункт 4.
     # Испорт итогового файла в opencart
     #
-    run_schedule(shop, category, 'add', 'import')
+    # run_schedule(shop, category, 'add', 'import')
 
     # Пункт 5.
     # Экспорт всех товаров, обработка - проставление моля модель равное полю ID
     # Импорт итогового файла в магазин
     run_schedule(shop, 'all', 'update', 'export')
     replace_model(shop)
-    run_schedule(shop, 'all', 'update', 'import')
+    # run_schedule(shop, 'all', 'update', 'import')
 
 def createParser ():
     parser = argparse.ArgumentParser()

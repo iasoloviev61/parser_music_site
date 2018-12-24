@@ -43,6 +43,33 @@ def export_csv(shop, category, action, data):
         writer.writeheader()
         writer.writerows(data)
 
+def export_csv(shop, category, action, data):
+    output_file = action + '_' + category + '_' + shop + '.csv'
+    with open(Config.RAW_PATH + shop + Config.SCHED_IMPORT_PATH + output_file, "w", newline="", encoding='utf8') as file:
+        columns =[
+            "_ID_",
+            "_MAIN_CATEGORY_",
+            "_NAME_",
+            "_LOCATION_",
+            "_IMAGE_",
+        ]
+        writer = csv.DictWriter(file, fieldnames=columns)
+        writer.writeheader()
+        writer.writerows(data)
+
+def export_csv_with_null_price(shop, category, action, data):
+    output_file = action + '_' + category + '_' + shop + '.csv'
+    with open(Config.RAW_PATH + shop + Config.SCHED_IMPORT_PATH + output_file, "w", newline="", encoding='utf8') as file:
+        columns =[
+            "_ID_",
+            "_MAIN_CATEGORY_",
+            "_NAME_",
+            "_LOCATION_",
+            "_IMAGE_",
+        ]
+        writer = csv.DictWriter(file, fieldnames=columns)
+        writer.writeheader()
+        writer.writerows(data)
 
 def del_img(data):
     logging.info('Will be delete a %s images from file-system' % (len(data)))
