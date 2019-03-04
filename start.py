@@ -25,15 +25,15 @@ def run_app(shop, category, spider):
     # Запустить экспорт товаров из магазина
     # в файл './raw/shop/имя_магазина/shedulers/export/имя_действия--категория--магазин.csv'
     logging.info('Second phase start')
-    run_schedule(shop, category, 'del', 'export')
+    #run_schedule(shop, category, 'del', 'export')
     # конвертируем полученный файл в список
-    result = import_csv(shop, category, 'del')
+    #result = import_csv(shop, category, 'del')
     # выбрасываем из списка всё, что не относится к текущему указанному магазину - параметр shop
-    final = filter_by_shop(shop, result)
+    #final = filter_by_shop(shop, result)
     # Удаляем картинки из файловой системы
     # del_img(final)
     # формируем файл для импорта в opencart, конвертируем список в формат csv
-    export_csv(shop, category, 'del', final)
+    #export_csv(shop, category, 'del', final)
     # Запускаем задание импорта, в данном случае удаление товаров
     # run_schedule(shop, category, 'del', 'import')
     logging.info('Second phase done')
@@ -51,8 +51,8 @@ def run_app(shop, category, spider):
     # Пункт 5.
     # Экспорт всех товаров, обработка - проставление моля модель равное полю ID
     # Импорт итогового файла в магазин
-    run_schedule(shop, 'all', 'update', 'export')
-    replace_model(shop)
+    #run_schedule(shop, 'all', 'update', 'export')
+    #replace_model(shop)
     # run_schedule(shop, 'all', 'update', 'import')
 
 def createParser ():

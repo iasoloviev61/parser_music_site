@@ -48,6 +48,26 @@ class Config(object):
                     'import': '1545222565'
                     }
                 },
+            'duhovye': {
+                'del': {
+                    'export': '',
+                    'import': '',
+                },
+                'add': {
+                    'import': ''
+                }
+
+                },
+            'udarnie': {
+                'del': {
+                    'export': '',
+                    'import': '',
+                    },
+                'add': {
+                    'import': ''
+                    }
+
+                },
             'all': {
                 'update': {
                     'export': '1545038827',

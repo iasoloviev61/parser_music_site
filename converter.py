@@ -31,7 +31,7 @@ def convert_product_to_csv(data, type_category, shop):
     logging.info('')
     for item_data in data:
         if len(item_data['_NAME_']) > 0:
-            name = item_data['_NAME_'].replace('купить', '')[1:]
+            name = item_data['_NAME_'].replace('купить', '')
             seo_keyword = translit(name, 'ru', reversed=True)
             if len(item_data['price']) == 0:
                 end_price = ""
@@ -96,10 +96,10 @@ def convert_product_to_csv(data, type_category, shop):
 
     # Download image
     # Делим большой список на несколько маленьких
-    image_list_parted = split_list(image_list, wanted_parts=Config.PART_OF_IMAGE_LIST)
+    #image_list_parted = split_list(image_list, wanted_parts=Config.PART_OF_IMAGE_LIST)
     # Проходим по спискам и качаем
-    for item_image_list in image_list_parted:
-        download(item_image_list)
+    #for item_image_list in image_list_parted:
+    #    download(item_image_list)
 
 
 
