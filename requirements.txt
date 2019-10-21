@@ -15,4 +15,4 @@ requests==2.19.1
 scp==0.11.0
 six==1.11.0
 transliterate==1.10.2
-urllib3==1.23
+urllib3==1.24.2
